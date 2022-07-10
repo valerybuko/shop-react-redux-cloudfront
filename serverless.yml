@@ -5,6 +5,7 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: nodejs12.x
+  region: us-east-1
   # setup profile for AWS CLI.
   # profile: node-aws
   #profile: valerybuko
@@ -18,7 +19,7 @@ plugins:
 
 custom:
   client:
-    bucketName: ecommerce-shop-react-redux-cloudfront-app
+    bucketName: nodejs-aws-react-cloudfront-app
     distributionFolder: build
 
   ## Serverless-single-page-app-plugin configuration:
