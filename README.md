@@ -46,8 +46,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## S3-website
 
-https://nodejs-aws-react-cloudfront-app.s3.amazonaws.com/index.html
+https://ecommerce-shop-react-redux-cloudfront-app.s3.eu-west-1.amazonaws.com/index.html
 
 ## CloudFront URL
 
-https://d3bmd4d6g7hjdq.cloudfront.net/
+https://d3b6g9h5ovht1v.cloudfront.net
