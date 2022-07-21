@@ -8,8 +8,12 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Product } from 'models/Product';
 import { formatAsPrice } from 'utils/utils';
+import {
+  productServiceURL,
+  getProductsPath,
+} from 'constants/services/productService';
 import AddProductToCart from 'components/AddProductToCart/AddProductToCart';
-// import axios from 'axios';
+import axios from 'axios';
 // import API_PATHS from "constants/apiPaths";
 import productList from './productList.json';
 
@@ -23,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '56.25%', // 16:9
   },
   cardContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
     flexGrow: 1,
     color: '#3f51b5',
   },
@@ -39,7 +46,15 @@ export default function Products() {
   useEffect(() => {
     // axios.get(`${API_PATHS.bff}/product/available/`)
     //   .then(res => setProducts(res.data));
-    setProducts(productList);
+
+    axios
+      .get(productServiceURL + getProductsPath)
+      .then((res) => {
+        const products = JSON.parse(res.data.products);
+        setProducts(products);
+      })
+      .catch((err) => console.log(err));
+    // setProducts(productList);
   }, []);
 
   return (
