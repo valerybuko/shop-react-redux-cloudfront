@@ -50,8 +50,7 @@ export default function Products() {
     axios
       .get(productServiceURL + getProductsPath)
       .then((res) => {
-        const products = JSON.parse(res.data.products);
-        setProducts(products);
+        setProducts(res?.data?.products);
       })
       .catch((err) => console.log(err));
     // setProducts(productList);
